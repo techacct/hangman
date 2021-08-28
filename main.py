@@ -2,22 +2,24 @@ import random
 
 word_list = ["aardvark", "baboon", 'camel']
 chosen_word = random.choice(word_list)
-
+word_length = len(chosen_word)
 print(f"The chosen word is {chosen_word}")
 
-
+#Craete blanks
 display = []
-word_length = len(chosen_word)
-
 for _ in range(word_length):
     display.append("_")
-print(display)
+#print(display)
 
-guess = input("Guess a letter ").lower()
+while '_' in display:
 
-for position in range(word_length):
-    letter =  chosen_word[position]
-    if letter == guess:
-        display[position] = letter
+    guess = input("Guess a letter ").lower()
 
-print(display)
+    for position in range(word_length):
+        letter =  chosen_word[position]
+        if letter == guess:
+            display[position] = letter
+
+    print(display)
+else:
+    print("You won!")
